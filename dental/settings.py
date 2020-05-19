@@ -128,13 +128,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
-'''
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'fearringtonkid1@gmail.com'
-EMAIL_HOST_PASSWORD ='AeronauticalMechanical2020'
-EMAIL_USE_TLS = True
-'''
 
 # python -m smtpd -n -c DebuggingServer localhost:1025
 EMAIL_HOST = 'localhost'
