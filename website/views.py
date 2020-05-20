@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.core.mail import send_mail
+from django.core.mail import send_mail, BadHeaderError
 
 def home(request):
 	return render(request,'home.html', {})
@@ -20,13 +20,16 @@ def contact(request):
 		message = request.POST['message']
 
 		#send email
-		send_mail(
-			message_name, #subject
-			message, #message
-			message_email, #from email
-			['camfearrington@gmail.com'], #to email
-			fail_silently=False,
-			) 
+		try:
+			send_mail(
+				message_name, #subject
+				message, #message
+				message_email, #from email
+				['camfearrington@gmail.com'], #to email
+				fail_silently=False,
+				) 
+		except BadHeaderError:
+			return HttpResponse('Invalid Header Found.')
 		return render(request, 'contact.html', {'message_name': message_name})
 	else:
 		return render(request,'contact.html', {})
