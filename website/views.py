@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.core.mail import send_mail, BadHeaderError
+import website.models
 
 def home(request):
+	website.models.test()
 	return render(request,'home.html', {})
 
 def about(request):
