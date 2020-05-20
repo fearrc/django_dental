@@ -125,7 +125,7 @@
             </div>
 
             <!-- Booking Now Button -->
-            <a href="#" class="btn dento-btn booking-btn">Booking Now</a>
+            <a href="{% url 'home' %}#appointments" class="btn dento-btn booking-btn">Booking Now</a>
           </nav>
         </div>
       </div>
@@ -487,7 +487,8 @@
         <div class="col-12">
           <!-- Appointment Form -->
           <div class="appointment-form">
-            <form action="#" method="post">
+            <form action="{% url 'appointment' %}" method="post">
+              {% csrf_token %}
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group mb-30">
@@ -496,7 +497,7 @@
                 </div>
                 <div class="col-md-6">
                   <div class="form-group mb-30">
-                    <input type="text" name="your-phone" class="form-control" placeholder="Your Phone" required>
+                    <input type="tel" name="your-phone" class="form-control" placeholder="Your Phone xxxxxxxxxx" required>
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -511,19 +512,20 @@
                 </div>
                 <div class="col-md-6">
                   <div class="form-group mb-30">
-                    <select name="your-scheldule" class="form-control">
-                      <option value="Choose Your Scheldule">Choose Your Scheldule</option>
+                    <select name="your-day" class="form-control">
+                      <option value="Choose Your Day">Choose Your Day</option>
                       <option value="Monday">Monday</option>
                       <option value="Tuesday">Tuesday</option>
                       <option value="Wednesday">Wednesday</option>
                       <option value="Thursday">Thursday</option>
+                      <option value="Friday">Friday</option>
                     </select>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group mb-30">
                     <select name="your-time" class="form-control">
-                      <option value="Choose Your Time">Choose Your Scheldule</option>
+                      <option value="Choose Your Time">Choose Your Time</option>
                       <option value="9 AM to 10 AM">9 AM to 10 AM</option>
                       <option value="11 AM to 12 PM">11 AM to 12 PM</option>
                       <option value="2 PM to 4 PM">2 PM to 4 PM</option>
@@ -826,7 +828,8 @@
             <p>We will send out weekly newest article and some great offers</p>
             <!-- Newsletter Form -->
             <div class="footer-newsletter-form">
-              <form action="#" method="post">
+              <form action="{% url 'newsletter' %}" method="post">
+                {% csrf_token %}
                 <input type="email" name="nl-email" value="" placeholder="Email Address">
                 <button type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
               </form>
