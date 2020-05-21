@@ -3,7 +3,6 @@ from django.core.mail import send_mail, BadHeaderError
 import website.models
 
 def home(request):
-	website.models.test()
 	return render(request,'home.html', {})
 
 def about(request):
@@ -13,6 +12,7 @@ def blogdetails(request):
 	return render(request,'blog-details.html', {})
 
 def blog(request):
+	website.models.test()
 	return render(request,'blog.html', {})
 
 def contact(request):
@@ -74,3 +74,7 @@ def newsletter(request):
 			})
 	else:
 		return render(request,'newsletter.html', {})
+
+def calendar(request):
+	print(website.models.test())
+	return render(request,'home.html', {})
